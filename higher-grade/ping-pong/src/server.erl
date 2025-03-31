@@ -133,11 +133,17 @@ loop() ->
         {ping, dddding, From} ->
             From ! {pong, dong},
             loop();
+        {ping, ding, From} ->
+            From ! {pong, dong},
+            loop();
         {ping, ping, From} ->
             From ! {pong, pong},
             loop();
         {ping, tick, From} ->
             From ! {pong, tock},
+            loop();
+        {ping, king, From} ->
+        From ! {pong, kong},
             loop();
         {stop, From} ->
             From ! {stop, ok};
